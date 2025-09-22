@@ -1,0 +1,30 @@
+{
+  "name": "cgpa-calculator",
+  "version": "1.0.0",
+  "description": "A beautiful, modern web-based CGPA calculator with responsive design",
+  "main": "index.html",
+  "scripts": {
+    "start": "python server.py",
+    "dev": "python server.py"
+  },
+  "keywords": [
+    "cgpa",
+    "calculator",
+    "gpa",
+    "academic",
+    "grade",
+    "student",
+    "education",
+    "web-app"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cgpa-calculator.git"
+  },
+  "homepage": "https://yourusername.github.io/cgpa-calculator",
+  "bugs": {
+    "url": "https://github.com/yourusername/cgpa-calculator/issues"
+  }
+}

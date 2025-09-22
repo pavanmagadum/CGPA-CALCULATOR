@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator - Academic Grade Point Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Simple favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-graduation-cap header-icon"></i>
+                <h1>CGPA Calculator</h1>
+                <p>Calculate your Cumulative Grade Point Average</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-plus-circle"></i>
+                        <h2>Add Subjects</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numSubjects">
+                            <i class="fas fa-list-ol"></i>
+                            Number of Subjects
+                        </label>
+                        <input type="number" id="numSubjects" min="1" max="20" placeholder="Enter number of subjects">
+                        <button id="createFields" class="btn btn-primary">
+                            <i class="fas fa-magic"></i>
+                            Create Subject Fields
+                        </button>
+                    </div>
+
+                    <div id="subjectsContainer" class="subjects-container"></div>
+
+                    <button id="calculateCGPA" class="btn btn-success calculate-btn" style="display: none;">
+                        <i class="fas fa-calculator"></i>
+                        Calculate CGPA
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="card results-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>Your Results</h2>
+                    </div>
+                    
+                    <div id="cgpaDisplay" class="cgpa-display">
+                        <div class="cgpa-value">
+                            <span class="cgpa-number" id="cgpaNumber">0.00</span>
+                            <span class="cgpa-label">CGPA</span>
+                        </div>
+                        <div class="cgpa-grade" id="cgpaGrade">Grade: A+</div>
+                    </div>
+
+                    <div id="detailedResults" class="detailed-results">
+                        <h3><i class="fas fa-table"></i> Subject-wise Breakdown</h3>
+                        <div class="results-table-container">
+                            <table id="resultsTable" class="results-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Marks</th>
+                                        <th>Credits</th>
+                                        <th>Grade Points</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultsTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="summary">
+                            <div class="summary-item">
+                                <span class="summary-label">Total Credits:</span>
+                                <span class="summary-value" id="totalCredits">0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Total Grade Points:</span>
+                                <span class="summary-value" id="totalGradePoints">0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="resetCalculator" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            Calculate Again
+                        </button>
+                        <button id="printResults" class="btn btn-info">
+                            <i class="fas fa-print"></i>
+                            Print Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 CGPA Calculator. Made with <i class="fas fa-heart"></i> for students.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner">
+            <i class="fas fa-graduation-cap fa-spin"></i>
+            <p>Calculating your CGPA...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
