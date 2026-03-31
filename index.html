@@ -1,130 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGPA Calculator - Academic Grade Point Calculator</title>
+    <title>CGPA Calculator | Premium Academic Tool</title>
+    <meta name="description"
+        content="Calculate your CGPA effortlessly with our professional, light-themed calculator. Designed for students who value aesthetics and precision.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Simple favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header Section -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
         <header class="header">
-            <div class="header-content">
-                <i class="fas fa-graduation-cap header-icon"></i>
-                <h1>CGPA Calculator</h1>
-                <p>Calculate your Cumulative Grade Point Average</p>
-            </div>
+            <h1 id="main-title">SGPA Calculator</h1>
+            <p>Enter your marks to calculate your GPA based on credits.</p>
         </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Input Section -->
-            <div class="input-section">
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fas fa-plus-circle"></i>
-                        <h2>Add Subjects</h2>
+        <section class="calculator-grid" id="subjects-container">
+            <!-- Theory Subjects -->
+            <div class="subject-card" id="card-dmv" data-credits="3">
+                <div class="card-header">
+                    <h3>Data Mining and Visualization</h3>
+                    <span class="badge">3 Credits</span>
+                </div>
+                <div class="input-group single-input">
+                    <div class="input-field">
+                        <label for="dmv-total-input">Total Marks (Max 100)</label>
+                        <input type="number" id="dmv-total-input" placeholder="Enter Total Marks" min="0" max="100">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="numSubjects">
-                            <i class="fas fa-list-ol"></i>
-                            Number of Subjects
-                        </label>
-                        <input type="number" id="numSubjects" min="1" max="20" placeholder="Enter number of subjects">
-                        <button id="createFields" class="btn btn-primary">
-                            <i class="fas fa-magic"></i>
-                            Create Subject Fields
-                        </button>
-                    </div>
-
-                    <div id="subjectsContainer" class="subjects-container"></div>
-
-                    <button id="calculateCGPA" class="btn btn-success calculate-btn" style="display: none;">
-                        <i class="fas fa-calculator"></i>
-                        Calculate CGPA
-                    </button>
+                </div>
+                <div class="card-footer">
+                    <div class="credit-info">Credits: 3</div>
+                    <div class="total-marks">Total: <span id="dmv-total">0</span>/100</div>
+                    <div class="grade-point">GP: <span id="dmv-gp">-</span></div>
                 </div>
             </div>
 
-            <!-- Results Section -->
-            <div id="resultsSection" class="results-section" style="display: none;">
-                <div class="card results-card">
-                    <div class="card-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h2>Your Results</h2>
-                    </div>
-                    
-                    <div id="cgpaDisplay" class="cgpa-display">
-                        <div class="cgpa-value">
-                            <span class="cgpa-number" id="cgpaNumber">0.00</span>
-                            <span class="cgpa-label">CGPA</span>
-                        </div>
-                        <div class="cgpa-grade" id="cgpaGrade">Grade: A+</div>
-                    </div>
-
-                    <div id="detailedResults" class="detailed-results">
-                        <h3><i class="fas fa-table"></i> Subject-wise Breakdown</h3>
-                        <div class="results-table-container">
-                            <table id="resultsTable" class="results-table">
-                                <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Marks</th>
-                                        <th>Credits</th>
-                                        <th>Grade Points</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="resultsTableBody">
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div class="summary">
-                            <div class="summary-item">
-                                <span class="summary-label">Total Credits:</span>
-                                <span class="summary-value" id="totalCredits">0</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="summary-label">Total Grade Points:</span>
-                                <span class="summary-value" id="totalGradePoints">0.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="action-buttons">
-                        <button id="resetCalculator" class="btn btn-secondary">
-                            <i class="fas fa-redo"></i>
-                            Calculate Again
-                        </button>
-                        <button id="printResults" class="btn btn-info">
-                            <i class="fas fa-print"></i>
-                            Print Results
-                        </button>
+            <div class="subject-card" id="card-bda" data-credits="3">
+                <div class="card-header">
+                    <h3>Big Data Analytics</h3>
+                    <span class="badge">3 Credits</span>
+                </div>
+                <div class="input-group single-input">
+                    <div class="input-field">
+                        <label for="bda-total-input">Total Marks (Max 100)</label>
+                        <input type="number" id="bda-total-input" placeholder="Enter Total Marks" min="0" max="100">
                     </div>
                 </div>
+                <div class="card-footer">
+                    <div class="credit-info">Credits: 3</div>
+                    <div class="total-marks">Total: <span id="bda-total">0</span>/100</div>
+                    <div class="grade-point">GP: <span id="bda-gp">-</span></div>
+                </div>
             </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 CGPA Calculator. Made with <i class="fas fa-heart"></i> for students.</p>
-        </footer>
-    </div>
+            <div class="subject-card" id="card-bizda" data-credits="3">
+                <div class="card-header">
+                    <h3>Business Data Analytics</h3>
+                    <span class="badge">3 Credits</span>
+                </div>
+                <div class="input-group single-input">
+                    <div class="input-field">
+                        <label for="bizda-total-input">Total Marks (Max 100)</label>
+                        <input type="number" id="bizda-total-input" placeholder="Enter Total Marks" min="0" max="100">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="credit-info">Credits: 3</div>
+                    <div class="total-marks">Total: <span id="bizda-total">0</span>/100</div>
+                    <div class="grade-point">GP: <span id="bizda-gp">-</span></div>
+                </div>
+            </div>
 
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
-        <div class="spinner">
-            <i class="fas fa-graduation-cap fa-spin"></i>
-            <p>Calculating your CGPA...</p>
-        </div>
-    </div>
+            <!-- Major Project -->
+            <div class="subject-card project-card Highlight" id="card-project" data-credits="15">
+                <div class="card-header">
+                    <h3>Major Project</h3>
+                    <span class="badge primary">15 Credits</span>
+                </div>
+                <div class="input-group single-input">
+                    <div class="input-field">
+                        <label for="project-total-input">Total Marks (Max 200)</label>
+                        <input type="number" id="project-total-input" placeholder="Enter Total Marks" min="0" max="200">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="credit-info highlight-credits">Credits: 15</div>
+                    <div class="total-marks">Total: <span id="project-total">0</span>/200</div>
+                    <div class="grade-point">GP: <span id="project-gp">-</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-section">
+            <button id="calculate-btn" class="main-btn">Calculate SGPA</button>
+
+            <div id="result-display" class="result-card hidden">
+                <div class="sgpa-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" class="bg-circle" />
+                        <circle cx="50" cy="50" r="45" class="progress-circle" id="sgpa-progress" />
+                    </svg>
+                    <div class="sgpa-value">
+                        <span id="sgpa-num">0.00</span>
+                        <small>SGPA</small>
+                    </div>
+                </div>
+                <div class="result-info">
+                    <h2 id="remark">Congratulations!</h2>
+                    <p id="details">Total Credits Earned: 24/24</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>© 2026 Academic Excellence Portal. Precision Tools for Tomorrow's Leaders.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
